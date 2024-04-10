@@ -5,14 +5,16 @@ class Progress extends HTMLElement {
     max: "max",
   };
   static observedAttributes = Object.values(Progress.attrs);
-
-  static css = `
+  
+  static documentCss = `
     @property --progress {
       syntax: "<length-percentage>";
       inherits: false;
       initial-value: 0%;
     }
+  `;
 
+  static css = `
     :host {
       display: inline-block;
 
@@ -42,7 +44,7 @@ class Progress extends HTMLElement {
       place-items: center;
 
       /* this works thanks to the @property at the top */
-      transition: --progress 500ms linear;
+      transition: --progress 600ms ease;
     }
 
     .progressbar::after {
@@ -96,6 +98,10 @@ class Progress extends HTMLElement {
 
   constructor() {
     super();
+
+    const documentSheet = new CSSStyleSheet();
+    documentSheet.replaceSync(Progress.documentCss);
+    document.adoptedStyleSheets.push(documentSheet);
   }
 
   connectedCallback() {
@@ -106,9 +112,7 @@ class Progress extends HTMLElement {
     sheet.replaceSync(Progress.css);
     shadowRoot.adoptedStyleSheets = [sheet];
     template.innerHTML = `
-      <div class="progressbar">
-        
-      </div>
+      <div class="progressbar"></div>
     `;
     shadowRoot.appendChild(template.content.cloneNode(true));
     this.#progressbar = shadowRoot.querySelector(".progressbar"); 
@@ -119,6 +123,10 @@ class Progress extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    if (!this.isConnected) {
+      return;
+    }
+
     if (oldValue !== newValue) {
       if (name === Progress.attrs.value) {
         this.value = newValue;
