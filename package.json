@@ -1,6 +1,6 @@
 {
   "name": "@hasancruk/cruk-progress",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is an experimental Progress component that closely mimicks CRUK's React Progress component.",
   "main": "cruk-progress.js",
   "scripts": {
