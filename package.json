@@ -1,0 +1,27 @@
+{
+  "name": "@hasancruk/cruk-progress",
+  "version": "0.0.1",
+  "description": "This is an experimental Progress component that closely mimicks CRUK's React Progress component.",
+  "main": "cruk-progress.js",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasancruk/cruk-progress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hasancruk/cruk-progress/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["progress", "web component", "vanilla", "shadow dom"],
+  "author": {
+    "name": "Hasan Ali",
+    "email": "hasan.ali@cancer.org.uk",
+    "url": "https://www.hasanhaja.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/hasancruk/cruk-progress#cruk-progress"
+}

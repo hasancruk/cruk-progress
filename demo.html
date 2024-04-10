@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>CRUK Progress Web Component</title>
+    <script type="module" src="./cruk-progress.js"></script>
+    <style>
+      :root {
+        --cruk-progressbar__bar-color: #2e008b;
+        --cruk-progressbar__track-color: #edebe9;
+      }
+     
+      [data-theme="su2c"] {
+        --cruk-progressbar__bar-color: #ffb04d;
+      }
+      
+      [data-theme="rfl"] {
+        --cruk-progressbar__bar-color: #009cee;
+      }
+
+      [data-theme="bowelbabe"] {
+        --cruk-progressbar__bar-color: #92ddcb;
+      }
+    </style>
+	</head>
+	<body>
+    <header>
+      <h1>CRUK Progress Web Component</h1>
+    </header>
+    <main>
+      <p>
+        CRUK Progress
+        <a href="https://github.com/hasancruk/cruk-progress">Source code on GitHub</a>
+      </p>
+      <section>
+        <h2>Circle</h2>
+        <cruk-progress></cruk-progress>
+      </section>
+      <section>
+        <h2>Circle @ 20%</h2>
+        <cruk-progress value="20"></cruk-progress>
+      </section>
+      <section>
+        <h2>Circle @ 100% with animation</h2>
+        <cruk-progress value="100"></cruk-progress>
+      </section>
+      <section>
+        <h2>Circle SU2C</h2>
+        <cruk-progress value="35" data-theme="su2c"></cruk-progress>
+      </section>
+      <section>
+        <h2>Circle RFL</h2>
+        <cruk-progress value="65" data-theme="rfl"></cruk-progress>
+      </section>
+      <section>
+        <h2>Circle Bowelbabe</h2>
+        <cruk-progress value="85" data-theme="bowelbabe"></cruk-progress>
+      </section>
+    </main>
+	</body>
+</html>
